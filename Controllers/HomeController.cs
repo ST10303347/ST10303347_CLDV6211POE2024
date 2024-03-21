@@ -23,6 +23,21 @@ namespace ST10303347_CLDV6211POE2024.Controllers
             return View();
         }
 
+        public IActionResult ShowWork()
+        {
+            return View("MyWorkPage");
+        }
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public IActionResult Contact_Us()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

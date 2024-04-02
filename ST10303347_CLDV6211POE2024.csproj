@@ -27,9 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\things\progimg1.jpg" />
-    <None Include="wwwroot\css\things\progimg2.jpg" />
-    <None Include="wwwroot\css\things\progimg3.jpg" />
+    <None Include="wwwroot\css\things\progimg1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\css\things\progimg2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\css\things\progimg3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

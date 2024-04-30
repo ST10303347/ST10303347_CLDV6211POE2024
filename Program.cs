@@ -13,6 +13,17 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication()
+            .AddGoogle(options =>
+            {
+                options.ClientId = "817077506747-1jv836jpgcdbl4kj5bp3t6haf0d1kalv.apps.googleusercontent.com";
+                options.ClientSecret = "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";
+
+
+
+            });
+
+
 
 var app = builder.Build();
 

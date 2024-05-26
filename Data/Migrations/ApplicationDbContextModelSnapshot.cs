@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ST10303347_CLDV6211POE2024.Data;
+using ST10303347_CLDV6211POE2024.Models;
 
 #nullable disable
 
@@ -13,6 +14,8 @@ namespace ST10303347_CLDV6211POE2024.Data.Migrations
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Order> Order { get; set; }
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

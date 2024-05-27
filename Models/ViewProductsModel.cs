@@ -5,18 +5,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ST10303347_CLDV6211POE2024.Models
 {
-    public class Order
+    public class ViewProductsModel
     {
-        public int OrderId { get; set; }
-        public DateTime OrderDate { get; set; }
-        public int Quantity { get; set; }
-        public double totalPrice { get; set; }
-        public orderStatus status { get; set; } 
-        public int? ProductId { get; set; }
-        [ForeignKey("ProductId")]
-        public Product? Product { get; set; }
-      
 
+        public int productId { get; set; }
+        public string Name { get; set; }
+
+        public double Price { get; set; }
+
+        public ProductCategory Category { get; set; }
+
+        public string Availability { get; set; }
+
+        public string Description { get; set; }
+        public IFormFile Image { get; set; }
         [Required]
         public string? IdentityUserId { get; set; }
         [ForeignKey("IdentityUserId")]

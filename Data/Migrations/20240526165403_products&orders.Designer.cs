@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ST10303347_CLDV6211POE2024.Data;
 
@@ -11,9 +12,11 @@ using ST10303347_CLDV6211POE2024.Data;
 namespace ST10303347_CLDV6211POE2024.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240526165403_products&orders")]
+    partial class productsorders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,9 +238,6 @@ namespace ST10303347_CLDV6211POE2024.Data.Migrations
                     b.Property<string>("IdentityUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");

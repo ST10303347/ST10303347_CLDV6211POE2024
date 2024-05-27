@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ST10303347_CLDV6211POE2024.Data;
 
@@ -11,9 +12,11 @@ using ST10303347_CLDV6211POE2024.Data;
 namespace ST10303347_CLDV6211POE2024.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240526163103_products and orders")]
+    partial class productsandorders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,83 +227,6 @@ namespace ST10303347_CLDV6211POE2024.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ST10303347_CLDV6211POE2024.Models.Order", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
-
-                    b.Property<string>("IdentityUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("status")
-                        .HasColumnType("int");
-
-                    b.Property<double>("totalPrice")
-                        .HasColumnType("float");
-
-                    b.HasKey("OrderId");
-
-                    b.HasIndex("IdentityUserId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("orders");
-                });
-
-            modelBuilder.Entity("ST10303347_CLDV6211POE2024.Models.Product", b =>
-                {
-                    b.Property<int>("productId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("productId"));
-
-                    b.Property<string>("Availability")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Category")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdentityUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.HasKey("productId");
-
-                    b.HasIndex("IdentityUserId");
-
-                    b.ToTable("products");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -350,34 +276,6 @@ namespace ST10303347_CLDV6211POE2024.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ST10303347_CLDV6211POE2024.Models.Order", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ST10303347_CLDV6211POE2024.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ST10303347_CLDV6211POE2024.Models.Product", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ST10303347_CLDV6211POE2024.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>OUR PRODUCTS</h1>
+
+@foreach (var product in Model)
+
+{
+    
+   <div>
+
+       <img src="@product.ImagePath" style="width:auto height:auto" />
+        <p>Artist: @product.User.UserName</p>
+   </div>
+
+
+
+}
+
+@if (!Model.Any())
+{
+    <p>Currently No Products for Sale</p>
+}

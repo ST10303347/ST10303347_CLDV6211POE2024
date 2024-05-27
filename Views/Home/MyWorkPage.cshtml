@@ -1,6 +1,11 @@
-﻿@{
+﻿
+
+
+@{
     ViewData["Title"] = "My Work Page";
+
 }
+
 <h1>@ViewData["Title"]</h1>
 
 
@@ -31,32 +36,23 @@
 
 </div>
 
-<div class="allmyProducts" style=" display: flex;
-            justify-content: center;
-            flex-wrap: wrap;">
-    <div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
-        <img src="~/css/things/chests.webp" style=" width: 300px; height: 300px;" >
-        <h2>chests</h2>
-        <p class="price">R2309.99</p>
-    </div>
-
-    <div style="font-family: Arial, sans-serif; margin: 0; padding: 50px;">
-        <img src="~/css/things/Gfatherclock.jpg"style=" width: 300px; height: 300px;">
-        <h2>Grandfatherclocks</h2>
-        <p class="price">R2899.99</p>
-    </div>
-
-    <div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
-        <img src="~/css/things/potforsale.jpg" style=" width: 300px; height: 300px;">
-        <h2>Pots</h2>
-        <p class="price">R899.99</p>
-    </div>
-
-
-
-
-</div>
-
+@if (Model != null)
+{
+    @foreach (var product in Model)
+    {
+        <div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+           
+            <img src="@product.ImagePath" style="width: 300px; height: 300px;">
+            <h2><a asp-controller="Products" asp-action="Details" asp-route-id="@product.productId">@product.Name</a></h2>
+            <p class="price">R @product.Price</p>
+           
+        </div>
+    }
+}
+else
+{
+    <p>No products available.</p>
+}
 
 
     

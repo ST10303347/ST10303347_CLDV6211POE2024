@@ -34,6 +34,9 @@ namespace ST10303347_CLDV6211POE2024.Models
 
         public static SqlConnection con = new SqlConnection(con_string);
 
+        public Product()
+        {
+        }
 
         public int insert_product(Product p)
         {

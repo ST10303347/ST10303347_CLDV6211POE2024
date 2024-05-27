@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ST10303347_CLDV6211POE2024.Data.myMethods;
 using ST10303347_CLDV6211POE2024.Models;
 using System.Diagnostics;
 
@@ -7,15 +9,18 @@ namespace ST10303347_CLDV6211POE2024.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly Productmethods _myMethods;
 
+       
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+          return View();
+
         }
 
         public IActionResult Privacy()

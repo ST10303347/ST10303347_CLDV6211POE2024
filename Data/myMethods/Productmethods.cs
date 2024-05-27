@@ -24,6 +24,16 @@ namespace ST10303347_CLDV6211POE2024.Data.myMethods
             var applicationDbContext = _context.products.Include(p => p.User);
             return applicationDbContext;
         }
+        public async Task<Product?> Getproduct(int id) {
+
+            var product = await _context.products
+               .Include(a => a.User)
+                .FirstOrDefaultAsync(m => m.productId == id);
+              
+
+               
+            return product;
+        }
 
     }
 }

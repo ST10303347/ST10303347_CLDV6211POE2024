@@ -33,22 +33,22 @@ namespace ST10303347_CLDV6211POE2024.Controllers
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.products
-                .Include(p => p.User)
-                .FirstOrDefaultAsync(m => m.productId == id);
-            if (product == null)
+            var Product = await _myMethods.Getproduct(id);
+
+            if (Product == null)
+                if (Product == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View();
         }
 
         // GET: Products/Create
